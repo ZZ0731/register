@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 public class RegisterController {
 	@RequestMapping("/register")
-     public String register() {
+     public String register() {	
     	 return "register";
      }
 }

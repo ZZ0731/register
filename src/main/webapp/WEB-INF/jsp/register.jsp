@@ -15,7 +15,7 @@
 				<p class="p1">登录</p>
 			</div>
 			<!-- 输入框 -->		
-			<form action=${pageContext.request.contextPath}/jsp/show.jsp  target="_self">
+			<form action=${pageContext.request.contextPath}/jsp/show.jsp  target="_self" method="post">
 			<div class="lgD">
 				<img src=${pageContext.request.contextPath}/img/logName.jpg width="20" height="20" alt=""/>
 				<input type="text" name="uname" placeholder="输入用户名" />
