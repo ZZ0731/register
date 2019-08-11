@@ -22,10 +22,18 @@
 }
 .submit {
 	width: 100%;
-	height: 45px;
-	background-color: #ee7700;
+	height: 45px;	
 	border: none;
 	color: white;
+	background-color:#DDDDDD;
+	font-size: 18px;
+}
+.submitchangColor {
+	width: 100%;
+	height: 45px;	
+	border: none;
+	color: white;
+	background-color:#EE7700;
 	font-size: 18px;
 }
 .logGet .logD.logDtip .p1 {
@@ -66,12 +74,9 @@
 	margin-right: auto;
 	margin-bottom: 0px;
 	margin-left: auto;
+	disabled:true;
 }
  
- .logC:hover{
- width: 110%;
- }
-
  
 
 	
