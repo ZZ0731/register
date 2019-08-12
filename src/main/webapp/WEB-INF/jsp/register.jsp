@@ -16,7 +16,7 @@
 				<p class="p1">登录</p>
 			</div>
 			<!-- 输入框 -->		
-			<form  id="userLogin" action=${pageContext.request.contextPath}/show.jsp  target="_self" method="post">
+			<form  id="userLogin" action=${pageContext.request.contextPath}/check  target="_self" method="post">
 			<div class="lgD">
 				<img src=${pageContext.request.contextPath}/img/logName.jpg width="20" height="20" alt=""/>
 				<input type="text" name="uname" placeholder="输入用户名"  v-model="uname"/>
