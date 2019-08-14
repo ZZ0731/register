@@ -39,6 +39,12 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!-- ZZ 2019 08 13springboot引入jstl依赖包 -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>			
+		</dependency>
+		
 		<!-- ZZ 2019 08 07springboot不支持jsp所以 整合jsp需要war工程，引入依赖包 -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
