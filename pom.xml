@@ -72,6 +72,13 @@
 			<artifactId>mybatis-spring-boot-starter</artifactId>
 			<version>2.1.0</version>
 		</dependency>
+		 <!--ZZ 2019 08 20 添加分页查询插件-->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+			<version>4.1.3</version>
+
+		</dependency>
 		<!-- end -->
 		
 	</dependencies>

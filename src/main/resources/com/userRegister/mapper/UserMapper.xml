@@ -13,11 +13,16 @@
 		<result property="age" column="age" javaType="java.lang.String"/>
 		<result property="sex" column="sex" javaType="java.lang.String"/>
 		<result property="address" column="address" javaType="java.lang.String"/>
-
 	</resultMap>
 	<select id="selectUserOne" parameterType="map"
 		resultMap="userResultMap">
 		select id,code,name,password,create_date,modify_date,age,sex,address from zz_user
 		where code=#{code} and password=#{password};
+	</select>
+	<select id="selectUserPage" 
+		resultType="com.userRegister.pojo.User">
+		select id,code,name,password,create_date,modify_date,age,sex,address from zz_user where 
+		code=#{parameter} or name like CONCAT('%',#{parameter},'%') or address like CONCAT('%',#{parameter},'%');
+		
 	</select>
 </mapper>

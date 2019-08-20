@@ -1,5 +1,9 @@
 package com.userRegister.service;
 
+
+
+
+import com.github.pagehelper.Page;
 import com.userRegister.pojo.User;
 
 /** 
@@ -9,10 +13,9 @@ import com.userRegister.pojo.User;
 */
 
 public interface UserService {
-   //添加用户
-	//void addUser(User user);
+   
 	//查找登录用户
-	User selectUserOne(String code,String password);
+	User selectUserOne(String code,String password);	
     //分页查找用户
-	//List<User> findUsers(int page,int rows);
+	Page<User> selectUserPage(String queryParamater,int pageNum,int pageSize);
 }

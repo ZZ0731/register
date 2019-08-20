@@ -1,5 +1,8 @@
 package com.userRegister.mapper;
 
+import java.util.List;
+
+import com.github.pagehelper.Page;
 import com.userRegister.pojo.User;
 
 /** 
@@ -9,4 +12,5 @@ import com.userRegister.pojo.User;
  */
 public interface UserMapper {
 	public User selectUserOne(String code,String password);
+	public List<User> selectUserPage(String parameter);
 }
