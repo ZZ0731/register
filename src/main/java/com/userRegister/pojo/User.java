@@ -2,11 +2,14 @@ package com.userRegister.pojo;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class User {
 	private int id;
 	private String code;//账号
 	private String name;//用户名称
 	private String password;//密碼
+	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")//返回界面日期时格式化
 	private Date create_date;//创建日期
 	private Date modify_date;//修改日期
 	private String age;//年齡

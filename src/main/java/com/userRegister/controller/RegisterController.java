@@ -66,7 +66,7 @@ public class RegisterController {
 		int pageSize=request.getParameter("pageSize")==null?10:Integer.parseInt(request.getParameter("pageSize"));
 		Map<String,Object> userMap=new HashMap<String,Object>();
 		Page<User> page=userServiec.selectUserPage(queryParameter,pageNum,pageSize);	
-		userMap.put("userPageData", page);
+		userMap.put("userPageData", page.getResult());
 		userMap.put("userTotal", page.getTotal());
 		return userMap;
 		
