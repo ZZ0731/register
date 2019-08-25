@@ -9,12 +9,20 @@ public class User {
 	private String code;//账号
 	private String name;//用户名称
 	private String password;//密碼
-	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")//返回界面日期时格式化
+	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="yyyy-MM-dd",timezone="GMT+8")//返回界面日期时格式化
 	private Date create_date;//创建日期
+	@JsonFormat(shape=JsonFormat.Shape.STRING,pattern="yyyy-MM-dd",timezone="GMT+8")//返回界面日期时格式化
 	private Date modify_date;//修改日期
 	private String age;//年齡
 	private String sex;//性别
 	private String address;//地址
+	private String creator;//创建人
+	public String getCreator() {
+		return creator;
+	}
+	public void setCreator(String creator) {
+		this.creator = creator;
+	}
 	public int getId() {
 		return id;
 	}

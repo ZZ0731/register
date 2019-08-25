@@ -15,13 +15,13 @@ import com.userRegister.pojo.User;
 import com.userRegister.service.UserService;
 
 /** 
-* @author 钟忠: 
-* @version 创建时间：2019年8月12日 下午10:45:14 
-* 类说明service层 userService实现类
-*/
+ * @author 钟忠: 
+ * @version 创建时间：2019年8月12日 下午10:45:14 
+ * 类说明service层 userService实现类
+ */
 @Service
 public class UserServiceImpl implements UserService {
-   @Autowired
+	@Autowired
 	private UserMapper userMapper;
 	/*
 	 *查询登录用户
@@ -31,24 +31,48 @@ public class UserServiceImpl implements UserService {
 		return userMapper.selectUserOne(code, password);
 	}
 
-	
-   /*
-	* 分页查找用户
-	*/
+
+	/*
+	 * 分页查找用户
+	 */
 	@Override
 	public Page<User> selectUserPage(String queryParameter, int pageNum, int pageSize) {
-				
+
 		//userMapper.selectUserPage(queryParameter);	
-//		PageHelper.startPage(pageNum, pageSize);
-//	        List<User> list = userMapper.selectUserPage(queryParameter);	
-//	        PageInfo<User> pageInfo = new PageInfo<User>(list);
-//	        pageInfo.getTotal();
-//	        pageInfo.getList();
-	        Page<User> page=PageHelper.startPage(pageNum, pageSize);
-	        userMapper.selectUserPage(queryParameter);	
-	        List<User> list =page.getResult();
+		//		PageHelper.startPage(pageNum, pageSize);
+		//	        List<User> list = userMapper.selectUserPage(queryParameter);	
+		//	        PageInfo<User> pageInfo = new PageInfo<User>(list);
+		//	        pageInfo.getTotal();
+		//	        pageInfo.getList();
+		Page<User> page=PageHelper.startPage(pageNum, pageSize);
+		userMapper.selectUserPage(queryParameter);	
+		List<User> list =page.getResult();
 
 		return page;
+	}
+
+	/**
+	 * 新增用户
+	 */
+	@Override
+	public int addUser(User user) {		
+		return userMapper.addUser(user);
+	}
+
+	/**
+	 * 修改用户
+	 */
+	@Override
+	public int updateUser(User user) {		
+		return userMapper.updateUser(user);
+	}
+
+	/**
+	 * 删除用户
+	 */
+	@Override
+	public int deleteUser(String id) {
+		return userMapper.deleteUser(id);
 	}
 
 

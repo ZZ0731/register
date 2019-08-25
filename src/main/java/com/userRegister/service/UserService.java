@@ -18,4 +18,11 @@ public interface UserService {
 	User selectUserOne(String code,String password);	
     //分页查找用户
 	Page<User> selectUserPage(String queryParamater,int pageNum,int pageSize);
+	//新增用户
+	int addUser(User user);
+	//修改用户
+	int updateUser(User user);
+	//删除用户
+	int deleteUser(String id);
+	
 }
