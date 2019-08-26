@@ -96,7 +96,7 @@ public class RegisterController {
 			user.setName(name);
 			user.setPassword(pass);
 			user.setSex(sex);	
-			user.setSex(creator);	
+			user.setCreator(creator);	
 			int i=userService.addUser(user);
 			if(i!=1) {
 				msgCode="500";

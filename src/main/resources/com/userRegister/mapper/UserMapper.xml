@@ -40,35 +40,8 @@
 		VALUES (
 		#{code},#{name},#{password},#{age},#{create_date},#{creator},#{sex},#{address})
 	</insert>
-	<update id="updateUser" >
-		        update  zz_user	  set      
-		
-			            
-			<if test="name != null and name != ''">  
-				      name = #{name},	         
-			</if>         
-			<if test="code != null and code != ''">  
-			      code = #{code},	         
-			</if>
-			         
-			<if test="password != null and password != ''">  
-				      password = #{password},	         
-			</if>         
-			<if test="age != null and age != ''">  
-				       age = #{age},
-				         
-			</if>
-			<if test="sex != null and sex != ''">  
-				      sex = #{sex},
-				         
-			</if>
-			<if test="address != null and address != ''">  
-				    address = #{address}
-				         
-			</if>	         	
-		         where id = #{id}
-		   
-	</update>
+	<update id="updateUser" parameterType="com.userRegister.pojo.User">update  `zz_user`<trim prefix="SET" suffixOverrides=","><if test="name!=null and name!='' ">`zz_user`.`name` = #{name},</if><if test="code != null and code != ''">`zz_user`.`code`=#{code},</if><if test="password!= null and password!=''">`zz_user`.`password`=#{password},</if><if test="age != null and age != ''">`zz_user`.`age`= ${age},</if><if test="sex != null and sex != ''">`zz_user`.`sex`=#{sex},</if><if test="address != null and address != ''">`zz_user`.`address`=#{address}</if></trim>where `zz_user`.`id` = ${id}
+    </update>
 	<delete id="deleteUser">
 		delete from zz_user where id = #{id}
 	</delete>
