@@ -37,17 +37,8 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Override
 	public Page<User> selectUserPage(String queryParameter, int pageNum, int pageSize) {
-
-		//userMapper.selectUserPage(queryParameter);	
-		//		PageHelper.startPage(pageNum, pageSize);
-		//	        List<User> list = userMapper.selectUserPage(queryParameter);	
-		//	        PageInfo<User> pageInfo = new PageInfo<User>(list);
-		//	        pageInfo.getTotal();
-		//	        pageInfo.getList();
 		Page<User> page=PageHelper.startPage(pageNum, pageSize);
 		userMapper.selectUserPage(queryParameter);	
-		List<User> list =page.getResult();
-
 		return page;
 	}
 

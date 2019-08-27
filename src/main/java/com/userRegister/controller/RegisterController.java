@@ -58,18 +58,30 @@ public class RegisterController {
 	}
 	/*分页查询
 	 */
+	@SuppressWarnings("finally")
 	@RequestMapping(value="/queryUserPage",method=RequestMethod.POST)
 	public Map<String,Object> queryUserPage(HttpServletRequest request,HttpServletResponse response){
-
-		String queryParameter=request.getParameter("queryParameter")==null?"":request.getParameter("queryParameter");
-		int pageNum=request.getParameter("pageNum")==null?1:Integer.parseInt(request.getParameter("pageNum"));
-		int pageSize=request.getParameter("pageSize")==null?10:Integer.parseInt(request.getParameter("pageSize"));
+		String msgCode="200";
 		Map<String,Object> userMap=new HashMap<String,Object>();
-		Page<User> page=userService.selectUserPage(queryParameter,pageNum,pageSize);	
-		userMap.put("userPageData", page.getResult());
-		userMap.put("userTotal", page.getTotal());
-		return userMap;
-
+		try {
+			String queryParameter=request.getParameter("queryParameter")==null?"":request.getParameter("queryParameter");
+			int pageNum=request.getParameter("pageNum")==null?1:Integer.parseInt(request.getParameter("pageNum"));
+			int pageSize=request.getParameter("pageSize")==null?10:Integer.parseInt(request.getParameter("pageSize"));	
+			Page<User> page=userService.selectUserPage(queryParameter,pageNum,pageSize);	
+			if(page.getResult().size()<1) {
+				msgCode="500";
+				userMap.put("msg","未查询到用户信息！");
+			}
+			userMap.put("userPageData", page.getResult());
+			userMap.put("userTotal", page.getTotal());
+			
+		}catch(Exception e){
+			msgCode="500";
+			userMap.put("msg",e.getMessage());
+		}finally {
+			userMap.put("msgCode", msgCode);
+			return userMap;
+		}
 	}
 	/*
 	 * 新增用户
