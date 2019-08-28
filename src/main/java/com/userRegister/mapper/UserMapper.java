@@ -13,6 +13,7 @@ import com.userRegister.pojo.User;
 public interface UserMapper {
 	public User selectUserOne(String code,String password);
 	public List<User> selectUserPage(String parameter);
+	//public int selectUserCount(String parameter);
 	public int addUser(User user);
 	public int updateUser(User user);
 	public int deleteUser(String id);

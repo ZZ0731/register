@@ -39,6 +39,13 @@ public class UserServiceImpl implements UserService {
 	public Page<User> selectUserPage(String queryParameter, int pageNum, int pageSize) {
 		Page<User> page=PageHelper.startPage(pageNum, pageSize);
 		userMapper.selectUserPage(queryParameter);	
+		//2019 08 28		 	
+//        List<User> listuser= userMapper.selectUserPage(queryParameter,(pageNum-1)*pageSize,pageSize);	         
+//        int count=userMapper.selectUserCount(queryParameter);
+//        userMapper.toString();
+//    	page.addAll(listuser);
+//        page.setTotal(count);
+	//end
 		return page;
 	}
 
