@@ -78,6 +78,7 @@ public class RegisterController {
 		}catch(Exception e){
 			msgCode="500";
 			userMap.put("msg",e.getMessage());
+			logger.error(e.getMessage());
 		}finally {
 			userMap.put("msgCode", msgCode);
 			return userMap;
