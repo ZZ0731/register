@@ -8,8 +8,9 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 import com.github.pagehelper.autoconfigure.PageHelperAutoConfiguration;
 
+
 @MapperScan(basePackages= {"com.userRegister.mapper"})
-@SpringBootApplication//(exclude = PageHelperAutoConfiguration.class)
+@SpringBootApplication(exclude = PageHelperAutoConfiguration.class)
 public class SpringBootRegisterApplication extends SpringBootServletInitializer{
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
@@ -19,5 +20,6 @@ public class SpringBootRegisterApplication extends SpringBootServletInitializer{
 	public static void main(String[] args) {
 		SpringApplication.run(SpringBootRegisterApplication.class, args);
 	}
+	
 
 }

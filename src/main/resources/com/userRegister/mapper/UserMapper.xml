@@ -35,16 +35,17 @@
 		code=#{parameter} or name like CONCAT('%',#{parameter},'%') or address like
 		CONCAT('%',#{parameter},'%') order by create_date desc
 	</select>
-	<!--<select id="selectUserPage"  resultType="com.userRegister.pojo.User" >
-		select id,code,name,password,create_date,modify_date,age,sex,address from zz_user<where><if test="parameter!=null and parameter!=''">code=#{parameter} or name like CONCAT('%',#{parameter},'%') or address like CONCAT('%',#{parameter},'%')</if></where> limit #{currIndex},#{pageSize}		
+	<select id="queryUserPage"  resultType="com.userRegister.pojo.User" >
+		select id,code,name,password,create_date,modify_date,age,sex,address from zz_user<where><if test="parameter!=null and parameter!=''">code=#{parameter} or name like CONCAT('%',#{parameter},'%') or address like CONCAT('%',#{parameter},'%')</if>
+		</where>order by create_date desc limit #{currIndex},#{pageSize}		
 	</select>
-	<select id="selectUserCount" resultType="java.lang.Integer" >
+	<select id="queryUserCount" resultType="java.lang.Integer" >
 		select
 		count(*) from
 		zz_user where
 		code=#{parameter} or name like CONCAT('%',#{parameter},'%') or address like
 		CONCAT('%',#{parameter},'%') 
-	</select>-->
+	</select>
 	<insert id="addUser">
 		INSERT INTO zz_user(code,name,password,age,create_date,creator,sex,address)
 		VALUES (

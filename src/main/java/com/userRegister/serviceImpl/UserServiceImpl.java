@@ -38,14 +38,15 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Page<User> selectUserPage(String queryParameter, int pageNum, int pageSize) {
 		Page<User> page=PageHelper.startPage(pageNum, pageSize);
-		userMapper.selectUserPage(queryParameter);	
-		//2019 08 28		 	
-//        List<User> listuser= userMapper.selectUserPage(queryParameter,(pageNum-1)*pageSize,pageSize);	         
-//        int count=userMapper.selectUserCount(queryParameter);
-//        userMapper.toString();
-//    	page.addAll(listuser);
-//        page.setTotal(count);
-	//end
+		//userMapper.selectUserPage(queryParameter);	
+		//add 2019 08 28
+		int count=userMapper.queryUserCount(queryParameter);
+		if(count>0) {
+			List<User> listuser= userMapper.queryUserPage(queryParameter,(pageNum-1)*pageSize,pageSize);	                 			
+			page.addAll(listuser);
+			page.setTotal(count);
+		}
+		//end
 		return page;
 	}
 
